@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}
+<title> home </title>
+{% endblock title %}
+
+
+
+{% block body %}
+{% comment %} masssaged add.. {% endcomment %}
+
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+    <strong>massge!</strong>{{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+{% endfor %}
+
+    <center><h1> welcome to home page </h1></center>
+    <center><img src="{% static 'img/akshaya.jpg' %}" alt="Girl in a jacket" width="500" height="600">
+    </center>
+    
+    
+
+{% endblock body %}

@@ -1,0 +1,55 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    <!-- <h1>regeister</h1> -->
+{% endblock title %}
+
+
+{% block body %}
+<center><h1>regeister here</h1></center>
+{% comment %} masssaged add.. {% endcomment %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+    <strong>massge!</strong>{{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+{% endfor %}
+
+<div class="container">
+    <form class="my-5" method="post" action="regeister">
+      {% csrf_token %}
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="fname">First Name</label>
+            <input type="text" class="form-control" id="fname" placeholder="first name" name="fname">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="lname">Last Name</label>
+            <input type="text" class="form-control" id="lname" placeholder="last name" name="lname">
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">Email</label>
+            <input type="email" class="form-control" id="inputEmail4" placeholder="Email" name="email">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">Password</label>
+            <input type="password" class="form-control" id="inputPassword4" placeholder="Password" name="passwd">
+          </div>
+        </div>
+
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="uname">User name</label>
+            <input type="text" class="form-control" id="uname" name="uname" placeholder="user name" name="uname">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Sign in</button>
+      </form>
+</div>
+
+{% endblock body %}

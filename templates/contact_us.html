@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+
+{% block title %}
+<title> contact </title>
+{% endblock title %}
+{% block body %}
+<div class='container'>
+    <form action="contact" method="post">
+    {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit" class="btn btn-primary">
+    </form>
+</div>
+{% endblock body %}

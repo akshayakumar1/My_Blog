@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+
+
+{% block body %}
+
+{% comment %} masssaged add.. {% endcomment %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+    <strong>massge!</strong>{{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+{% endfor %}
+
+<div class='container'>
+    <form class='my-4' method="POST" action='change_password'>
+    {% csrf_token %}
+
+        {% comment %} <div class="form-group">
+          <label for="exampleInputPassword1">New Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="new_passwd">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your Password with anyone else.</small>
+        </div> {% endcomment %}
+
+        {{ form.as_p }}
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
+
+{% endblock body %}
